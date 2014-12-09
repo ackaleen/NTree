@@ -1,3 +1,6 @@
+require "omniauth-facebook"
+require "omniauth-twitter"
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -37,4 +40,9 @@ Rails.application.configure do
 
   # Mail Config
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  Devise.setup do |config|
+    config.mailer_sender = "devise@example.com"
+    #config.omniauth :facebook, '{ID}', '{SECRET}', :scope => 'email,user_birthday', :display => 'popup'
+    config.omniauth :twitter, 'Sw4jCGDCiBrFAsB9ylO59UwX6','gt4bv1AyBN7iD6DJifu78LOIfqdHmfhGPGfh5Y3QqfKJn3LTTD', :displat => 'popup'
+  end
 end

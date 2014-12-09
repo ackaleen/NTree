@@ -1,0 +1,8 @@
+<ul class="nav">
+<% if user_signed_in? %>
+  <li><%= link_to 'ログアウト', destroy_user_session_path %></li>
+<% else %>
+  <li><%= link_to "twitterでログイン", user_omniauth_authorize_path(:twitter)  %></li>
+<% end %>
+
+</ul>
